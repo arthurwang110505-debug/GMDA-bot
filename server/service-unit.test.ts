@@ -95,6 +95,8 @@ describe("service units", () => {
   });
 
   it("finds the CLI the installed desktop app ships, and runs it as Node", () => {
+    expect(shippedSentinelCli("darwin", "/Users/maus", (path) => path.startsWith("/Applications/GMDA.app/"))).toEqual({ node: "/Applications/GMDA.app/Contents/MacOS/GMDA", script: "/Applications/GMDA.app/Contents/Resources/server/openmausbot.js" });
+    expect(shippedSentinelCli("linux", "/home/maus", (path) => path.startsWith("/opt/GMDA/"))).toEqual({ node: "/opt/GMDA/openmausbot", script: "/opt/GMDA/resources/server/openmausbot.js" });
     const app = "/Applications/OpenMausBot.app/Contents";
     const present = new Set([`${app}/MacOS/OpenMausBot`, `${app}/Resources/server/openmausbot.js`]);
     expect(shippedSentinelCli("darwin", "/Users/maus", (path) => present.has(path))).toEqual({ node: `${app}/MacOS/OpenMausBot`, script: `${app}/Resources/server/openmausbot.js` });

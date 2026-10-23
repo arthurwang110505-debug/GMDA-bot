@@ -1,3 +1,4 @@
+import { PRODUCT_BRAND } from "../../shared/product-brand.ts";
 export interface Brand {
   name: string;
   tagline?: string;
@@ -14,7 +15,7 @@ export interface BrandStatus {
   notice?: string;
 }
 
-export const DEFAULT_BRAND: Brand = { name: "OpenMausBot" };
+export const DEFAULT_BRAND: Brand = { ...PRODUCT_BRAND };
 
 let current: BrandStatus = { brand: DEFAULT_BRAND, source: "default", file: "" };
 

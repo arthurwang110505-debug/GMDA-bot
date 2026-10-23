@@ -75,7 +75,7 @@ describe("updatePhase", () => {
 describe("updateLabel", () => {
   it("names the version it is ready to install", () => {
     expect(updateLabel("downloaded", state({ status: "downloaded", version: "0.2.0" }))).toBe(
-      "OpenMausBot 0.2.0 ready — restart",
+      "GMDA 0.2.0 ready — restart",
     );
   });
 
@@ -89,7 +89,7 @@ describe("updateLabel", () => {
     expect(updateLabel("installing", state({ status: "installing", message: "Restart is taking longer than expected." })))
       .toBe("Restart is taking longer than expected.");
     expect(updateLabel("downloaded", state({ status: "downloaded", version: "0.2.0", installMode: "handoff" })))
-      .toBe("OpenMausBot 0.2.0 ready — install");
+      .toBe("GMDA 0.2.0 ready — install");
     expect(updateLabel("installing", state({ status: "installing", installMode: "handoff" })))
       .toBe("Opening a terminal…");
   });
@@ -163,11 +163,11 @@ describe("updateNoteworthy", () => {
 describe("outward links", () => {
   it("sends Help Center to the docs the website also links to", () => {
     expect(HELP_CENTER_URL).toBe(DOCS_URL);
-    expect(DOCS_URL).toBe("https://github.com/milind-soni/OpenMausBot/tree/main/docs");
+    expect(DOCS_URL).toBe("https://github.com/arthurwang110505-debug/GMDA-bot/tree/main/docs");
   });
 
-  it("sends Send Feedback to the Discord community", () => {
-    expect(FEEDBACK_URL).toBe("https://discord.gg/9Wb8MEpXRs");
+  it("sends Send Feedback to GMDA issues", () => {
+    expect(FEEDBACK_URL).toBe("https://github.com/arthurwang110505-debug/GMDA-bot/issues");
   });
 });
 
@@ -234,7 +234,7 @@ describe("the phone entries", () => {
 
   it("never offers the iOS-only entry it replaced", () => {
     for (const target of ["computer", "server"] as const) {
-      expect(items(target, null).list.map((item) => item.label)).not.toContain("Get OpenMausBot for iOS");
+      expect(items(target, null).list.map((item) => item.label)).not.toContain("Get GMDA for iOS");
     }
   });
 

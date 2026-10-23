@@ -1,7 +1,8 @@
 {
   "id": "/",
-  "name": "OpenMausBot",
-  "short_name": "OpenMausBot",
+  "name": "GMDA",
+  "short_name": "GMDA",
+  "description": "Your AI team. Your control.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

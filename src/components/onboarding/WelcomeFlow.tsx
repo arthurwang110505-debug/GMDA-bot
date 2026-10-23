@@ -214,7 +214,7 @@ export function WelcomeFlow({
 
   const hello = beat === "hello";
   const title = beatTitle(beat, bot);
-  const logo = hello ? brand().logo : undefined;
+  const logo = hello ? (brand().logo ?? "/app-icon.svg") : undefined;
   const beatProps = { onNext: advance, onSkip: advance, setMascot, bump };
   const current = beats.indexOf(beat) + 1;
 
@@ -260,6 +260,10 @@ export function WelcomeFlow({
             </h1>
           )}
         </div>
+
+        {hello && brand().tagline && (
+          <p className="mt-2 text-center text-[14px] font-medium text-ink-secondary">{brand().tagline}</p>
+        )}
 
         <div key={beat} className={cn("flex flex-col", beat === "engines" ? "min-h-0" : "shrink-0")}>
           {beat === "hello" && <HelloBeat {...beatProps} hosted={hosted} />}

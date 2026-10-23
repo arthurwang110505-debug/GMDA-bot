@@ -1,3 +1,4 @@
+import { PRODUCT_BRAND } from "../shared/product-brand.ts";
 // White-label: a brand.json next to the data dir, applied only with the `whitelabel` entitlement (an unlicensed server
 // reports what it found and keeps the default). Read on every request, so an edit shows on the next reload.
 import { existsSync, readFileSync } from "node:fs";
@@ -38,7 +39,7 @@ export const brandSchema = z
 
 export type Brand = z.infer<typeof brandSchema>;
 
-export const DEFAULT_BRAND: Brand = { name: "OpenMausBot" };
+export const DEFAULT_BRAND: Brand = { ...PRODUCT_BRAND };
 
 export interface BrandStatus {
   brand: Brand;
