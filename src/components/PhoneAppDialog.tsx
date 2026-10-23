@@ -49,6 +49,9 @@ export function PhoneAppDialog({ open, onClose, connect = [] }: { open: boolean;
           {t("phoneApp.title")}
         </h2>
         <p className="mt-1 text-[13px] leading-relaxed text-ink-secondary">{t("phoneApp.subtitle")}</p>
+        <p className="mt-2 text-[12px] leading-relaxed text-ink-secondary">
+          These are the upstream MausBot mobile apps, not GMDA releases.
+        </p>
         <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {PHONE_APPS.map((app) => (
             <li key={app.id} data-phone-app={app.id} className="flex flex-col items-center gap-3 rounded-xl bg-card p-4 text-center">
